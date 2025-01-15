@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>API Endpoints</title>
+  </head>
+  <body>
+    <h1>API Endpoints</h1>
+
+    <h2>Book Endpoints</h2>
+
+    <h3>1. GET /books</h3>
+    <p><strong>Description:</strong> Fetch all books</p>
+    <p><strong>URL:</strong> /books</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>GET /books</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+    [
+        {
+            "id": 1,
+            "title": "Meditations",
+            "description": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
+            "rating": 5,
+            "image": "profile_pictures/Squirrel1.jpg",
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z",
+            "user_id": 1
+        },
+        {
+            "id": 2,
+            "title": "The Art of War",
+            "description": "The Art of War is an ancient Chinese military treatise dating from the Late Spring and Autumn Period (roughly 5th century BC).",
+            "rating": 4,
+            "image": "profile_pictures/Squirrel2.jpg",
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z",
+            "user_id": 1
+        }
+    ]
+    </pre>
+
+    <h3>2. GET /books/:id</h3>
+    <p><strong>Description:</strong> Fetch a specific book by ID</p>
+    <p><strong>URL:</strong> /books/:id</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>GET /books/1</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+    [
+        {
+            "id": 1,
+            "title": "Meditations",
+            "description": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
+            "rating": 5,
+            "image": "profile_pictures/Squirrel1.jpg",
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z",
+            "user_id": 1
+        }
+    ]
+    </pre>
+
+    <h3>3. POST /books</h3>
+    <p><strong>Description:</strong> Create a new book</p>
+    <p><strong>URL:</strong> /books</p>
+    <p><strong>Body Parameters:</strong></p>
+    <ul>
+      <li><code>title</code>: (string) The title of the book</li>
+      <li>
+        <code>description</code>: (string) A short description of the book
+      </li>
+      <li><code>rating</code>: (integer) A rating for the book (e.g., 1-5)</li>
+      <li><code>image</code>: (string) URL or path to the book's image</li>
+      <li>
+        <code>user_id</code>: (integer) The ID of the user who added the book
+      </li>
+    </ul>
+    <p><strong>Example Request:</strong> <code>POST /books</code></p>
+    <pre>
+        {
+            "title": "New Book Title",
+            "description": "A detailed description of the new book.",
+            "rating": 5,
+            "image": "image.png",
+            "user_id": 1
+        }
+    </pre>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "Book created",
+            "bookId": 10
+        }
+    </pre>
+
+    <h3>4. PUT /books/:id</h3>
+    <p><strong>Description:</strong> Update an existing book</p>
+    <p><strong>URL:</strong> /books/:id</p>
+    <p><strong>Body Parameters:</strong></p>
+    <ul>
+        <li><code>title</code>: (string) The title of the book</li>
+        <li>
+          <code>description</code>: (string) A short description of the book
+        </li>
+        <li><code>rating</code>: (integer) A rating for the book (e.g., 1-5)</li>
+        <li><code>image</code>: (string) URL or path to the book's image</li>
+        <li>
+          <code>user_id</code>: (integer) The ID of the user who added the book
+        </li>
+      </ul>
+    <p><strong>Example Request:</strong> <code>PUT /books/10</code></p>
+    <pre>
+        {
+            "title": "Updated Book Title",
+            "description": "Updated description of the book.",
+            "rating": 4,
+            "image": "updated.png",
+            "user_id": 1
+        }
+    </pre>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "Book updated",
+            "result": 1
+        }
+    </pre>
+
+    <h3>5. DELETE /books/:id</h3>
+    <p><strong>Description:</strong> Delete a book by ID</p>
+    <p><strong>URL:</strong> /books/:id</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>DELETE /books/9</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "Book with ID 9 has been deleted successfully."
+        }
+    </pre>
+
+    <h2>News Endpoints</h2>
+
+    <h3>1. GET /news</h3>
+    <p><strong>Description:</strong> Fetch all news articles</p>
+    <p><strong>URL:</strong> /news</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>GET /news</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+    [
+        {
+            "id": 1,
+            "title": "Category update",
+            "content": "You can now add categories to books",
+            "image": "images/ZtljHEkWwylQI5tEMuGhFek8FkLYAm16D2yBhFpM.jpg",
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T14:21:05.000Z"
+        },
+        {
+            "id": 2,
+            "title": "News update",
+            "content": "You can now see news",
+            "image": "images/MA.jpg",
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z"
+        }
+    ]
+    </pre>
+
+    <h3>2. GET /news/:id</h3>
+    <p><strong>Description:</strong> Fetch a specific news article by ID</p>
+    <p><strong>URL:</strong> /news/:id</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>GET /news/1</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "id": 1,
+            "title": "Category update",
+            "content": "You can now add categories to books",
+            "image": "images/ZtljHEkWwylQI5tEMuGhFek8FkLYAm16D2yBhFpM.jpg",
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T14:21:05.000Z"
+        }
+    </pre>
+
+    <h3>3. POST /news</h3>
+    <p><strong>Description:</strong> Create a new news article</p>
+    <p><strong>URL:</strong> /news</p>
+    <p><strong>Body Parameters:</strong></p>
+    <ul>
+      <li><code>title</code>: (string) The title of the news article</li>
+      <li><code>content</code>: (string) The content of the news article</li>
+      <li>
+        <code>image</code>: (string) URL or path to the image for the news
+        article
+      </li>
+    </ul>
+    <p><strong>Example Request:</strong> <code>POST /news</code></p>
+    <pre>
+        {
+            "title": "test update",
+            "content": "You are testing",
+            "image": "TESTER.jpg"
+        }
+    </pre>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "News created",
+            "newsId": 8
+        }
+    </pre>
+
+    <h3>4. PUT /news/:id</h3>
+    <p><strong>Description:</strong> Update an existing news article</p>
+    <p><strong>URL:</strong> /news/:id</p>
+    <p><strong>Body Parameters:</strong></p>
+    <ul>
+      <li><code>title</code>: (string) The title of the news article</li>
+      <li><code>content</code>: (string) The content of the news article</li>
+      <li>
+        <code>image</code>: (string) URL or path to the image for the news
+        article
+      </li>
+    </ul>
+    <p><strong>Example Request:</strong> <code>PUT /news/8</code></p>
+    <pre>
+        {
+            "title": "Updated News Title",
+            "content": "Updated content of the article.",
+            "image": "updated.jpg"
+        }
+    </pre>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "News updated",
+            "result": 1
+        }
+    </pre>
+
+    <h3>5. DELETE /news/:id</h3>
+    <p><strong>Description:</strong> Delete a news article by ID</p>
+    <p><strong>URL:</strong> /news/:id</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>DELETE /news/1</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "News with ID 1 has been deleted successfully."
+        }
+    </pre>
+
+    <h2>User Endpoints</h2>
+
+    <h3>1. GET /users</h3>
+    <p><strong>Description:</strong> Fetch all users</p>
+    <p><strong>URL:</strong> /users</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>GET /users</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+    [
+        {
+            "id": 1,
+            "name": "Brent",
+            "email": "brent.devroey@gmail.com",
+            "email_verified_at": null,
+            "password": "$2y$12$xsF57.41VW7vVfhsAM71IOxRBbz67gcqOCsAA9.jhBF.l5JS0SOr2",
+            "remember_token": null,
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z",
+            "bio": "HELLO",
+            "date_of_birth": "2005-03-18T23:00:00.000Z",
+            "profile_picture": "profile_pictures/Serpiente_alquimica.jpg",
+            "is_admin": 0
+        },
+        {
+            "id": 2,
+            "name": "Z",
+            "email": "z@gmail.com",
+            "email_verified_at": null,
+            "password": "$2y$12$xsF57.41VW7vVfhsAM71IOxRBbz67gcqOCsAA9.jhBF.l5JS0SOr2",
+            "remember_token": null,
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z",
+            "bio": "Z",
+            "date_of_birth": "2003-03-05T23:00:00.000Z",
+            "profile_picture": "profile_pictures/CDSbrQ0frIXPl3FQ1FJ8yfYEv3epvmaBvKVorgac.jpg",
+            "is_admin": 0
+        }
+    ]
+    </pre>
+
+    <h3>2. GET /users/:id</h3>
+    <p><strong>Description:</strong> Fetch a specific user by ID</p>
+    <p><strong>URL:</strong> /users/:id</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>GET /users/1</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "id": 1,
+            "name": "Brent",
+            "email": "brent.devroey@gmail.com",
+            "email_verified_at": null,
+            "password": "$2y$12$xsF57.41VW7vVfhsAM71IOxRBbz67gcqOCsAA9.jhBF.l5JS0SOr2",
+            "remember_token": null,
+            "created_at": "2025-01-14T13:27:01.000Z",
+            "updated_at": "2025-01-14T13:27:01.000Z",
+            "bio": "HELLO",
+            "date_of_birth": "2005-03-18T23:00:00.000Z",
+            "profile_picture": "profile_pictures/Serpiente_alquimica.jpg",
+            "is_admin": 0
+        }
+    </pre>
+
+    <h3>3. POST /users</h3>
+    <p><strong>Description:</strong> Create a new user</p>
+    <p><strong>URL:</strong> /users</p>
+    <p><strong>Body Parameters:</strong></p>
+    <ul>
+      <li><code>name</code>: (string) The user's name</li>
+      <li><code>email</code>: (string) The user's email</li>
+      <li><code>password</code>: (string) The user's password</li>
+      <li><code>role</code>: (string) User's role ("user" or "admin")</li>
+    </ul>
+    <p><strong>Example Request:</strong> <code>POST /users</code></p>
+    <pre>
+        {
+            "name": "WAZZAAAA",
+            "email": "WAZZAAAAAA@gmail.com",
+            "password": "Tester1",
+            "profile_picture": "WAZZAAAAAA.jpg",
+            "is_admin": 0
+        }
+  </pre
+    >
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "User created",
+            "userId": 11
+        }
+  </pre
+    >
+
+    <h3>4. PUT /users/:id</h3>
+    <p><strong>Description:</strong> Update a user</p>
+    <p><strong>URL:</strong> /users/:id</p>
+    <p><strong>Body Parameters:</strong></p>
+    <ul>
+        <li><code>name</code>: (string) The user's name</li>
+        <li><code>email</code>: (string) The user's email</li>
+        <li><code>password</code>: (string) The user's password</li>
+        <li><code>role</code>: (string) User's role ("user" or "admin")</li>
+    </ul>
+    <p><strong>Example Request:</strong> <code>PUT /users/11</code></p>
+    <pre>
+        {
+            "name": "WAZZAAAA",
+            "email": "WAZZAAAAAA@gmail.com",
+            "password": "Tester11332",
+            "profile_picture": "WAZZAAAAAA.jpg",
+            "is_admin": 0
+        }
+  </pre
+    >
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "User updated",
+            "result": 1
+        }
+  </pre
+    >
+
+    <h3>5. DELETE /users/:id</h3>
+    <p><strong>Description:</strong> Delete a user by ID</p>
+    <p><strong>URL:</strong> /users/:id</p>
+    <p><strong>Query Parameters:</strong> None</p>
+    <p><strong>Example Request:</strong> <code>DELETE /users/10</code></p>
+    <p><strong>Example Response:</strong></p>
+    <pre>
+        {
+            "message": "User with ID 10 has been deleted successfully."
+        }
+  </pre
+    >
+  </body>
+</html>

@@ -1,0 +1,83 @@
+
+/* General Layout */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #212529; /* Darker text color for readability */
+}
+
+/* Container */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the content */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+h1 {
+    color: #bb0000; /* Bright blue for the main title */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #a72828; /* Green color for section titles */
+    font-size: 1.8em;
+    margin-top: 30px;
+    border-bottom: 2px solid #a72828;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #6c757d; /* Light gray for subheadings */
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Paragraphs and Lists */
+p {
+    line-height: 1.6;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-left: 20px;
+    list-style-type: square;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Code blocks */
+code {
+    background-color: #f1f3f5; /* Light background for inline code */
+    color: #e83e8c; /* Light red color for inline code */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+pre {
+    background-color: #343a40; /* Dark background for block code */
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 1.05em;
+    line-height: 1.6;
+}
+
+
+
+
+
+
