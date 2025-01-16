@@ -16,14 +16,19 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
+    const limit = parseInt(req.query.limit, 10) || 10;  
+    const offset = parseInt(req.query.offset, 10) || 0; 
+    const searchQuery = req.query.search || "";         
+    
     try {
-        const books = await bookService.getBooks();
-        res.status(200).json(books);
-    } catch (e) {
-        res.status(500).json({ message: "Error fetching books", error: e.message });
+      const books = await bookService.getBooks(searchQuery, limit, offset);
+      res.json(books);
+    } catch (err) {
+      console.error("Error fetching books:", err);
+      res.status(500).json("Failed to fetch books");
     }
-});
+  });
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params;

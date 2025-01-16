@@ -29,11 +29,24 @@ const bookService = {
       );
     });
   },
-  getBooks: async () => {
+  getBooks: (searchQuery = "", limit = 0, offset = 0) => {
+    searchQuery = `%${searchQuery}%`;  
+    let query = "SELECT * FROM books WHERE title LIKE ? OR description LIKE ?"; 
+    const queryParams = [searchQuery, searchQuery];
+  
+    if (!isNaN(limit)) {
+      query += " LIMIT ?";
+      queryParams.push(limit);
+      if (!isNaN(offset)) {
+        query += " OFFSET ?";
+        queryParams.push(offset);
+      }
+    }
+  
     return new Promise((resolve, reject) => {
-      db.query("SELECT * FROM books", (e, results) => {
+      db.query(query, queryParams, (e, results) => {
         if (e) {
-          console.error("Error fetching books: ", e);
+          console.error("Error fetching books:", e);
           reject(e);
         }
         resolve(results);

@@ -12,31 +12,28 @@
     <h2>Book Endpoints</h2>
 
     <h3>1. GET /books</h3>
-    <p><strong>Description:</strong> Fetch all books</p>
+    <p><strong>Description:</strong> Fetch all books with optional search and pagination</p>
     <p><strong>URL:</strong> /books</p>
-    <p><strong>Query Parameters:</strong> None</p>
-    <p><strong>Example Request:</strong> <code>GET /books</code></p>
+    <p><strong>Query Parameters:</strong></p>
+    <ul>
+    <li><code>page</code>: (integer, optional) The page number for pagination (defaults to 1).</li>
+    <li><code>limit</code>: (integer, optional) The number of books per page (defaults to 10, maximum of 100).</li>
+    <li><code>search</code>: (string, optional) A search term to filter books by title or description.</li>
+    </ul>
+    <p><strong>Example Request (with pagination):</strong> <code>GET /books?page=2&limit=5</code></p>
+    <p><strong>Example Request (with search):</strong> <code>GET /books?search=war</code></p>
+    <p><strong>Example Request (with both pagination and search):</strong> <code>GET /books?page=1&limit=10&search=war</code></p>
     <p><strong>Example Response:</strong></p>
     <pre>
     [
-        {
-            "id": 1,
-            "title": "Meditations",
-            "description": "Meditations is a series of personal writings by Marcus Aurelius, Roman Emperor from 161 to 180 AD, recording his private notes to himself and ideas on Stoic philosophy.",
-            "rating": 5,
-            "image": "profile_pictures/Squirrel1.jpg",
-            "created_at": "2025-01-14T13:27:01.000Z",
-            "updated_at": "2025-01-14T13:27:01.000Z",
-            "user_id": 1
-        },
         {
             "id": 2,
             "title": "The Art of War",
             "description": "The Art of War is an ancient Chinese military treatise dating from the Late Spring and Autumn Period (roughly 5th century BC).",
             "rating": 4,
             "image": "profile_pictures/Squirrel2.jpg",
-            "created_at": "2025-01-14T13:27:01.000Z",
-            "updated_at": "2025-01-14T13:27:01.000Z",
+            "created_at": "2025-01-16T11:40:13.000Z",
+            "updated_at": "2025-01-16T11:40:13.000Z",
             "user_id": 1
         }
     ]
